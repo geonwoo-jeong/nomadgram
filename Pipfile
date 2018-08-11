@@ -33,6 +33,7 @@ django_coverage_plugin = "==1.5.0"
 
 [dev-packages]
 "autopep8" = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.7"
