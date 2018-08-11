@@ -7,6 +7,8 @@ from django.db import models
 
 class User(AbstractUser):
 
+    """ User Model """
+
     GENDER_CHOICES = (
         ('male', 'Male'),
         ('female', 'Female'),
