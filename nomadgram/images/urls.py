@@ -9,6 +9,6 @@ from nomadgram.images.views import (
 app_name = "images"
 urlpatterns = [
     path("", view=feed_view, name="feed"),
-    path("<int:image_id>/like", view=image_like_view, name="like_image"),
-    path("<int:image_id>/comment", view=comment_on_image_view, name="comment_image"),
+    path("<int:image_id>/likes", view=image_like_view, name="like_image"),
+    path("<int:image_id>/comments", view=comment_on_image_view, name="comment_image"),
 ]
