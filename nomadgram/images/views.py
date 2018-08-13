@@ -40,7 +40,9 @@ class LikeImage(APIView):
 
         try:
             found_image = models.Image.objects.get(id=image_id)
+
         except models.Image.DoesNotExist:
+
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         try:
@@ -63,3 +65,32 @@ class LikeImage(APIView):
 
 
 image_like_view = LikeImage.as_view()
+
+
+class CommentOnImage(APIView):
+
+    def post(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            found_image = models.Image.objects.get(id=image_id)
+
+        except models.Image.DoesNotExist:
+
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = serializers.CommentSerializer(data=request.data)
+
+        if serializer.is_valid():
+
+            serializer.save(creator=user, image=found_image)
+
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+
+        else:
+
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+comment_on_image_view = CommentOnImage.as_view()
