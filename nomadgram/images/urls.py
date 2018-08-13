@@ -3,6 +3,7 @@ from nomadgram.images.views import (
     feed_view,
     image_like_view,
     comment_on_image_view,
+    comment_view,
 )
 
 
@@ -11,4 +12,5 @@ urlpatterns = [
     path("", view=feed_view, name="feed"),
     path("<int:image_id>/likes", view=image_like_view, name="like_image"),
     path("<int:image_id>/comments", view=comment_on_image_view, name="comment_image"),
+    path("comments/<int:comment_id>", view=comment_view, name="comment"),
 ]

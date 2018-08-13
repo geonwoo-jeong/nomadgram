@@ -94,3 +94,23 @@ class CommentOnImage(APIView):
 
 
 comment_on_image_view = CommentOnImage.as_view()
+
+
+class Comment(APIView):
+
+    def delete(self, request, comment_id, format=None):
+
+        user = request.user
+
+        try:
+
+            comment = models.Comment.objects.get(id=comment_id, creator=user)
+
+            return Response(status=status.HTTP_202_ACCEPTED)
+
+        except models.Comment.DoestNotExist:
+
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+comment_view = Comment.as_view()
