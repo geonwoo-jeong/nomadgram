@@ -24,6 +24,11 @@ urlpatterns = [
         "images/",
         include("nomadgram.images.urls", namespace="images"),
     ),
+    # Notification management
+    path(
+        "notifications/",
+        include("nomadgram.notifications.urls", namespace="notifications"),
+    ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(
