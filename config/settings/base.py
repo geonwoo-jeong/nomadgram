@@ -66,7 +66,8 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
-    'rest_framework'  # REST framework
+    'rest_framework',  # REST framework
+    'taggit', # tags for the photos
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersAppConfig',
