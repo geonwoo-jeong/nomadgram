@@ -5,6 +5,10 @@ from . import models
 
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
+    list_display_links = (
+        'location',
+    )
+
     list_display = (
         'file',
         'location',
