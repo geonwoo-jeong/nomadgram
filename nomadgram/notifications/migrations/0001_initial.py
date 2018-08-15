@@ -19,10 +19,13 @@ class Migration(migrations.Migration):
             name='Notification',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('notifications_type', models.CharField(choices=[('like', 'Like'), ('comment', 'Comment'), ('follow', 'Follow')], max_length=20)),
-                ('creator', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='creator', to=settings.AUTH_USER_MODEL)),
+                ('notifications_type', models.CharField(choices=[
+                 ('like', 'Like'), ('comment', 'Comment'), ('follow', 'Follow')], max_length=20)),
+                ('creator', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT,
+                                              related_name='creator', to=settings.AUTH_USER_MODEL)),
                 ('image', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='images.Image')),
-                ('to', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='to', to=settings.AUTH_USER_MODEL)),
+                ('to', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT,
+                                         related_name='to', to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

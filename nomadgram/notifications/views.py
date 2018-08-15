@@ -18,3 +18,16 @@ class Notifications(APIView):
 
 
 notifications_view = Notifications.as_view()
+
+
+def create_notification(creator, to, notification_type, image=None, comment=None):
+
+    notification = models.Notification.objects.create(
+        creator=creator,
+        to=to,
+        notification_type=notification_type,
+        image=image,
+        comment=comment,
+    )
+
+    notification.save()
