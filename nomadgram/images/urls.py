@@ -1,6 +1,6 @@
 from django.urls import path
 from nomadgram.images.views import (
-    feed_view,
+    images_view,
     image_detail_view,
     image_like_view,
     image_unlike_view,
@@ -13,7 +13,7 @@ from nomadgram.images.views import (
 
 app_name = "images"
 urlpatterns = [
-    path("", view=feed_view, name="feed"),
+    path("", view=images_view, name="images"),
     path("<int:image_id>", view=image_detail_view, name="image_detail"),
     path("<int:image_id>/like", view=image_like_view, name="like_image"),
     path("<int:image_id>/unlike", view=image_unlike_view, name="unlike_image"),
