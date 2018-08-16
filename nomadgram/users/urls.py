@@ -1,5 +1,4 @@
 from django.urls import path
-
 from nomadgram.users.views import (
     explore_users_view,
     follow_user_view,
@@ -9,6 +8,7 @@ from nomadgram.users.views import (
     user_following_view,
     user_search_view,
     change_password_view,
+    facebook_login_view,
 )
 
 app_name = "users"
@@ -21,4 +21,5 @@ urlpatterns = [
     path("<str:username>/followers", view=user_followers_view, name="user_followers"),
     path("<str:username>/following", view=user_following_view, name="user_following"),
     path("search/", view=user_search_view, name="user_search"),
+    path("login/facebook/", facebook_login_view, name="fb_login"),
 ]
