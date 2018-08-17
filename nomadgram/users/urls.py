@@ -21,5 +21,5 @@ urlpatterns = [
     path("<str:username>/followers", view=user_followers_view, name="user_followers"),
     path("<str:username>/following", view=user_following_view, name="user_following"),
     path("search/", view=user_search_view, name="user_search"),
-    path("login/facebook/", facebook_login_view, name="fb_login"),
+    path("login/facebook/", facebook_login_view, name="facebook_login"),
 ]
