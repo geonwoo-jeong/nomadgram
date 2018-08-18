@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from rest_framework_jwt.views import obtain_jwt_token
+from nomadgram import views
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
@@ -32,7 +33,11 @@ urlpatterns = [
         "notifications/",
         include("nomadgram.notifications.urls", namespace="notifications"),
     ),
-    path("accounts/", include("allauth.urls")),
+    path(
+        "accounts/",
+        include("allauth.urls")
+    ),
+    path("", views.react_app_view),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
