@@ -2,7 +2,8 @@
   "dependencies": {
     "connected-react-router": "^4.4.1",
     "dotenv-expand": "^4.2.0",
-    "history": "^4.7.2"
+    "history": "^4.7.2",
+    "redux-i18n": "^1.5.13"
   },
   "devDependencies": {
     "reactotron-react-js": "^2.1.1",
