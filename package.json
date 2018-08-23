@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "connected-react-router": "^4.4.1",
+    "dotenv-expand": "^4.2.0",
+    "history": "^4.7.2"
+  }
+}
