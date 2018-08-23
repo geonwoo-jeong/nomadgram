@@ -3,5 +3,9 @@
     "connected-react-router": "^4.4.1",
     "dotenv-expand": "^4.2.0",
     "history": "^4.7.2"
+  },
+  "devDependencies": {
+    "reactotron-react-js": "^2.1.1",
+    "reactotron-redux": "^2.1.0"
   }
 }
