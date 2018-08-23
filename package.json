@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "reactotron-react-js": "^2.1.1",
-    "reactotron-redux": "^2.1.0"
+    "reactotron-redux": "^2.1.0",
+    "redux-devtools-extension": "^2.13.5"
   }
 }
