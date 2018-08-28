@@ -8,7 +8,7 @@ export const LoginForm = (props, context) => (
     <form className={formStyles.form} onSubmit={props.handleSubmit}>
       <input
         type="text"
-        placeholder="Username"
+        placeholder={context.t("Username")}
         className={formStyles.textInput}
         value={props.usernameValue}
         onChange={props.handleInputChange}
@@ -16,20 +16,26 @@ export const LoginForm = (props, context) => (
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={context.t("Password")}
         className={formStyles.textInput}
         value={props.passwordValue}
         onChange={props.handleInputChange}
         name="password"
       />
-      <input type="submit" value="Log in" className={formStyles.button} />
+      <input
+        type="submit"
+        value={context.t("Log in")}
+        className={formStyles.button}
+      />
     </form>
-    <span className={formStyles.divider}>or</span>
+    <span className={formStyles.divider}>{context.t("or")}</span>
     <span className={formStyles.facebookLink}>
-      <Ionicon icon="logo-facebook" fontSize="20px" color="#385185" /> Log in
-      with Facebook
+      <Ionicon icon="logo-facebook" fontSize="20px" color="#385185" />{" "}
+      {context.t("Log in with Facebook")}
     </span>
-    <span className={formStyles.forgotLink}>Forgot password?</span>
+    <span className={formStyles.forgotLink}>
+      {context.t("Forgot password?")}
+    </span>
   </div>
 );
 

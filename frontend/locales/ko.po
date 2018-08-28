@@ -42,3 +42,14 @@ msgstr "디렉터리"
 msgid "Language"
 msgstr "언어"
 
+#: src/components/Auth/presenter.js
+msgid "Checkout our app, Is cool"
+msgstr ""
+
+#: src/components/Auth/presenter.js
+msgid "Download it on the Apple AppStore"
+msgstr ""
+
+#: src/components/Auth/presenter.js
+msgid "Download it on the Google playStore"
+msgstr "Google Play에서 이용 가능"

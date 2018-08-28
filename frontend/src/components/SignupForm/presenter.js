@@ -5,16 +5,16 @@ import formStyles from "shared/formStyles.scss";
 
 const SignupForm = (props, context) => (
   <div className={formStyles.formComponent}>
-    <h3>Sign up to see photos and videos from your friends.</h3>
+    <h3>{context.t("Sign up to see photos and videos from your friends.")}</h3>
     <button className={formStyles.button}>
-      <Ionicon icon="logo-facebook" fontSize="20px" color="white" /> Log in with
-      Facebook
+      <Ionicon icon="logo-facebook" fontSize="20px" color="white" />{" "}
+      {context.t("Log in with Facebook")}
     </button>
-    <span className={formStyles.divider}>or</span>
+    <span className={formStyles.divider}>{context.t("or")}</span>
     <form className={formStyles.form} onSubmit={props.handleSubmit}>
       <input
         type="email"
-        placeholder="Email"
+        placeholder={context.t("Email")}
         className={formStyles.textInput}
         value={props.emailValue}
         onChange={props.handleInputChange}
@@ -22,15 +22,15 @@ const SignupForm = (props, context) => (
       />
       <input
         type="text"
-        placeholder="Full Name"
+        placeholder={context.t("Full Name")}
         className={formStyles.textInput}
-        value={props.fullnameValue}
+        value={props.fullNameValue}
         onChange={props.handleInputChange}
-        name="fullname"
+        name="fullName"
       />
       <input
         type="username"
-        placeholder="Username"
+        placeholder={context.t("Username")}
         className={formStyles.textInput}
         value={props.usernameValue}
         onChange={props.handleInputChange}
@@ -38,23 +38,28 @@ const SignupForm = (props, context) => (
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={context.t("Password")}
         className={formStyles.textInput}
         value={props.passwordValue}
         onChange={props.handleInputChange}
         name="password"
       />
-      <input type="submit" value="Sign up" className={formStyles.button} />
+      <input
+        type="submit"
+        value={context.t("Sign up")}
+        className={formStyles.button}
+      />
     </form>
     <p>
-      By signing up, you agree to our <span>Terms & Privacy Policy</span>.
+      {context.t("By signing up, you agree to our")}
+      <span>{context.t("Terms & Privacy Policy")}</span>.
     </p>
   </div>
 );
 
 SignupForm.propTypes = {
   emailValue: PropTypes.string.isRequired,
-  fullnameValue: PropTypes.string.isRequired,
+  fullNameValue: PropTypes.string.isRequired,
   usernameValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
