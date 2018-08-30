@@ -12,6 +12,7 @@ class Container extends Component {
     const { email, fullName, username, password } = this.state;
     return (
       <SignupForm
+        handleFacebookLogin={this._handleFacebookLogin}
         handleInputChange={this._handleInputChange}
         handleSubmit={this._handleSubmit}
         emailValue={email}
@@ -31,6 +32,9 @@ class Container extends Component {
   };
   _handleSubmit = event => {
     event.preventDefault();
+  };
+  _handleFacebookLogin = response => {
+    console.log(response);
   };
 }
 
