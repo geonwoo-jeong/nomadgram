@@ -69,7 +69,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.facebook',
     'rest_framework',  # REST framework
     'rest_framework.authtoken',
-    'taggit',  # tags for the photos
+    'django-taggit',  # tags for the photos
     'taggit_serializer',  # tag serializer
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration,
