@@ -18,7 +18,7 @@ DATABASES = {
         'USER': env('RDS_DB_USERNAME'),
         'PASSWORD': env('RDS_DB_PASSWORD'),
         'HOST': env('RDS_DB_HOSTNAME'),
-        'PORT': 5432,
+        'PORT': env.int('RDS_DB_PORT'),
         'ATOMIC_REQUESTS': True,
         'CONN_MAX_AGE': 60
     }
@@ -29,7 +29,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': env('REDIS_URL'),
+        'LOCATION': env('REDIS_URL', default='redis://127.0.0.1:6379'),
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             # Mimicing memcache behavior.
