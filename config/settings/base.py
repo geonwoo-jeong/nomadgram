@@ -74,10 +74,6 @@ THIRD_PARTY_APPS = [
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration,
     'corsheaders',  # To accept requests from React
-    'health_check',
-    'health_check.db',
-    'health_check.cache',
-    'health_check.storage',
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersAppConfig',
