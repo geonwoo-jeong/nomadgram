@@ -41,7 +41,10 @@ urlpatterns = [
         "health/",
         include("health_check.urls"),
     ),
-    path("", views.react_app_view),
+    path(
+        "",
+        views.react_app_view
+    ),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
