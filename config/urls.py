@@ -37,6 +37,10 @@ urlpatterns = [
         "accounts/",
         include("allauth.urls")
     ),
+    path(
+        "health/",
+        include("health_check.urls"),
+    ),
     path("", views.react_app_view),
     # Your stuff: custom urls includes go here
 ] + static(

@@ -73,7 +73,11 @@ THIRD_PARTY_APPS = [
     'taggit_serializer',  # tag serializer
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration,
-    'corsheaders'  # To accept requests from React
+    'corsheaders',  # To accept requests from React
+    'health_check',
+    'health_check.db',
+    'health_check.cache',
+    'health_check.storage',
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersAppConfig',
