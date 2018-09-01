@@ -76,10 +76,11 @@ THIRD_PARTY_APPS = [
     'corsheaders',  # To accept requests from React
 ]
 LOCAL_APPS = [
-    'nomadgram.users.apps.UsersAppConfig',
+    # custom users app
+    'nomadgram.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'nomadgram.images.apps.ImagesConfig',
-    'nomadgram.notifications.apps.NotificationsConfig',
+    'nomadgram.images.apps.ImagesConfig',  # images app
+    'nomadgram.notifications.apps.NotificationsConfig'  # notifications app
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -221,7 +222,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 ADMIN_URL = 'admin/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Daniel Roy Greenfeld""", 'daniel-roy-greenfeld@example.com'),
+    ("""Geonwoo Jeong""", 'geonwoo.jeong@gmail.com'),
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -257,9 +258,45 @@ REST_FRAMEWORK = {
 
 REST_USE_JWT = True
 ACCOUNT_LOGOUT_ON_GET = True
-
+SOCIALACCOUNT_QUERY_EMAIL = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION': False
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': [
+            'email',
+            'public_profile',
+            'user_friends'
+        ],
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time',
+            'picture'
+        ],
+        'AUTH_PARAMS': {
+            # 'auth_type': 'reauthenticate'
+        },
+        'METHOD': 'oauth2',
+        # 'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': True,
+        'VERSION': 'v2.4'
+    }
+}
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'nomadgram.users.serializers.SignUpSerializer'
 }

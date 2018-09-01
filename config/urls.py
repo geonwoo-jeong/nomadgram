@@ -37,14 +37,13 @@ urlpatterns = [
         "accounts/",
         include("allauth.urls")
     ),
-    path(
-        "",
-        views.react_app_view,
-    ),
-    # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
+
+urlpatterns += [
+    path("", views.react_app_view)
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
