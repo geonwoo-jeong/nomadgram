@@ -11,8 +11,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 ALLOWED_HOSTS = [
     'localhost',
     '52.68.117.73',
-    '.elasticbeanstalk.com',
-    '.gwjeong.com'
+    'gram.ap-northeast-1.elasticbeanstalk.com',
 ]
 
 # DATABASES
