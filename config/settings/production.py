@@ -12,6 +12,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '52.68.117.73',
     'gram.ap-northeast-1.elasticbeanstalk.com',
+    'gram.gwjeong.com'
 ]
 
 # DATABASES
