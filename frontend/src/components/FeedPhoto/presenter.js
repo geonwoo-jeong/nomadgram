@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.scss";
 import PhotoActions from "components/PhotoActions";
+import PhotoComments from "components/PhotoComments";
+import TimeStamp from "components/TimeStamp";
 
 const FeedPhoto = (props, context) => {
   return (
@@ -19,6 +21,12 @@ const FeedPhoto = (props, context) => {
       <img src={props.file} alt={props.caption} />
       <div>
         <PhotoActions number={props.like_count} />
+        <PhotoComments
+          caption={props.caption}
+          creators={props.creator.username}
+          comments={props.comments}
+        />
+        <TimeStamp time={props.natural_time} />
       </div>
     </div>
   );
@@ -40,9 +48,9 @@ FeedPhoto.propTypes = {
         profile_image: PropTypes.string,
         username: PropTypes.string.isRequired
       }).isRequired
-    })
+    }).isRequired
   ).isRequired,
-  created_at: PropTypes.string.isRequired
+  natural_time: PropTypes.string.isRequired
 };
 
 FeedPhoto.contextTypes = {
