@@ -26,7 +26,10 @@ const Comment = props => (
 
 PhotoComments.propTypes = {
   caption: PropTypes.string.isRequired,
-  creator: PropTypes.string.isRequired,
+  creator: PropTypes.shape({
+    profile_image: PropTypes.string,
+    username: PropTypes.string.isRequired
+  }),
   comments: PropTypes.arrayOf(
     PropTypes.shape({
       message: PropTypes.string.isRequired,
