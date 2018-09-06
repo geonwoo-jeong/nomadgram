@@ -18,8 +18,12 @@
       justify-content: center;
       align-items: center;
       border-bottom: 2px solid $light-grey;
+      .icon {
+        cursor: pointer;
+        margin-left: 14px;
+      }
       .title {
-        border: 1;
+        order: 1;
         margin-left: auto;
         margin-right: auto;
         font-weight: 600;

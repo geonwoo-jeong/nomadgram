@@ -1,6 +1,7 @@
 .actions {
   margin-bottom: 10px;
   .icons {
+    cursor: pointer;
     margin-bottom: 5px;
     &:first-child {
       margin-right: 10px;
@@ -8,5 +9,9 @@
   }
 }
 .likes {
+  cursor: pointer;
   font-weight: 600;
+  &:active {
+    color: $dark-grey;
+  }
 }

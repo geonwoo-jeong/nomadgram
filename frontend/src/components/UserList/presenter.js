@@ -9,8 +9,12 @@ const UserList = props => (
     <div className={styles.box}>
       <header className={styles.header}>
         <h4 className={styles.title}>{props.title}</h4>
-        <span onClick={props.closeLikes} />
-        <Ionicon icon="md-close" fontSize="20px" color="black" />
+        <Ionicon
+          className={styles.icon}
+          icon="md-close"
+          fontSize="24px"
+          color="black"
+        />
       </header>
       <div className={styles.content}>{props.loading ? <Loading /> : null}</div>
     </div>
@@ -20,7 +24,7 @@ const UserList = props => (
 UserList.proptypes = {
   title: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
-  users: PropTypes.array.isRequired,
+  userList: PropTypes.array,
   closeLikes: PropTypes.func.isRequired
 };
 
