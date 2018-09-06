@@ -32,10 +32,11 @@ function doUnlikePhoto(photoId) {
   };
 }
 
-function addComment(photoId) {
+function addComment(photoId, comment) {
   return {
     type: ADD_COMMENT,
-    photoId
+    photoId,
+    comment
   };
 }
 // api actions
@@ -193,7 +194,7 @@ function applyAddComment(state, action) {
     if (photo.id === photoId) {
       return {
         ...photo,
-        comments: [...photo.comment, comment]
+        comments: [...photo.comments, comment]
       };
     }
     return photo;

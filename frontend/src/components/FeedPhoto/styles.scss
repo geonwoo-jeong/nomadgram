@@ -2,7 +2,7 @@
   @include boxBorder(yes);
   width: 100%;
   max-width: $max-card-width;
-  margin-bottom: 60px;
+  margin-top: 60px;
   @include breakpoint("phone") {
     background-color: transparent;
     border: 0;
