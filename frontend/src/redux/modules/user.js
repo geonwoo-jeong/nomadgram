@@ -82,7 +82,7 @@ function getPhotoLikes(photoId) {
     const {
       user: { token }
     } = getState();
-    fetch(`/images/${photoId}/likes`, {
+    fetch(`/images/${photoId}/like`, {
       headers: {
         Authorization: `JWT ${token}`
       }
@@ -165,7 +165,7 @@ function applyLogout(state, action) {
 function applySetUserList(state, action) {
   const { userList } = action;
   return {
-    ...this.state,
+    ...state,
     userList
   };
 }
