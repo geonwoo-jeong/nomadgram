@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  .column {
+    .user {
+      .username {
+      }
+    }
+    .big-avatar {
+    }
+    .avatar {
+      width: 30px;
+      border-radius: 50%;
+    }
+    .button {
+    }
+  }
+}
