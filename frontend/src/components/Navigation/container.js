@@ -19,7 +19,6 @@ class Container extends Component {
     );
   }
   _onInputChange = event => {
-    console.log(event);
     const {
       target: { value }
     } = event;
@@ -32,6 +31,9 @@ class Container extends Component {
     const { term } = this.state;
     event.preventDefault();
     goToSearch(term);
+    this.setState({
+      term: ""
+    });
   };
 }
 
