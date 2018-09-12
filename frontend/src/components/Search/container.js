@@ -15,6 +15,13 @@ class Container extends Component {
     const { searchByTerm } = this.props;
     searchByTerm();
   }
+  componentDidUpdate(prevProps, prevState) {
+    const { searchByTerm } = this.props;
+    if (prevProps.match.params !== this.props.match.params) {
+      searchByTerm();
+    }
+  }
+
   static getDerivedStateFromProps = nextProps => {
     if (nextProps.userList && nextProps.imageList) {
       return { loading: false };
