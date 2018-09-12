@@ -23,7 +23,7 @@ const Navigation = (props, context) => (
             placeholder={context.t("Search")}
             className={styles.searchInput}
             value={props.value}
-            onInputChange={props.onInputChange}
+            onChange={props.onInputChange}
           />
         </form>
       </div>

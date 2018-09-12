@@ -19,6 +19,7 @@ class Container extends Component {
     );
   }
   _onInputChange = event => {
+    console.log(event);
     const {
       target: { value }
     } = event;
