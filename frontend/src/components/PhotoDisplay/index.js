@@ -8,7 +8,7 @@ const PhotoDisplay = props => (
     <img
       src={props.photo.file}
       className={styles.photo}
-      alt={"something else"}
+      alt={props.photo.caption}
     />
     <div className={styles.overlay}>
       <span className={styles.data}>

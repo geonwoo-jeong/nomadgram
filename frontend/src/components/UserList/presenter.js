@@ -10,7 +10,7 @@ const UserList = props => (
     <div className={styles.box}>
       <header className={styles.header}>
         <h4 className={styles.title}>{props.title}</h4>
-        <span onClick={props.closeLikes}>
+        <span onClick={props.closeLikes} className={styles.icon}>
           <Ionicon icon="md-close" fontSize="20px" color="black" />
         </span>
       </header>
@@ -23,6 +23,7 @@ const UserList = props => (
 
 const RenderUsers = props =>
   props.list.map(user => <UserDisplay user={user} key={user.id} />);
+
 RenderUsers.propTypes = {
   list: PropTypes.array
 };

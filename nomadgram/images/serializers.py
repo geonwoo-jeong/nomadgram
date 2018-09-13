@@ -17,11 +17,13 @@ class CountImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image
+
         fields = (
             'id',
             'file',
             'comment_count',
             'like_count',
+            'caption',
         )
 
 
