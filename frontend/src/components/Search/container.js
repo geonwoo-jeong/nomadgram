@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Search from "./presenter";
+import Explore from "./presenter";
 
 class Container extends Component {
   state = {
@@ -22,17 +22,25 @@ class Container extends Component {
     }
   }
 
-  static getDerivedStateFromProps = nextProps => {
+  componentWillReceiveProps = nextProps => {
+    const { searchByTerm, pathname } = this.props;
     if (nextProps.userList && nextProps.imageList) {
-      return { loading: false };
-    } else {
-      return { loading: true };
+      this.setState({
+        loading: false
+      });
+    }
+    // if (nextProps.match = == this.props.match) {
+    //   searchByTerm();
+    // }
+    if (nextProps.pathname !== pathname) {
+      searchByTerm();
     }
   };
-
   render() {
     const { userList, imageList } = this.props;
-    return <Search {...this.state} userList={userList} imageList={imageList} />;
+    return (
+      <Explore {...this.state} userList={userList} imageList={imageList} />
+    );
   }
 }
 

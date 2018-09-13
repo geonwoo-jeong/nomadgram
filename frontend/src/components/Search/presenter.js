@@ -13,40 +13,40 @@ const Search = (props, context) => {
         {props.loading && <Loading />}
         {!props.loading &&
           props.userList.length < 1 && (
-            <NotFound text={context.t("Nothing Found :(")} />
+            <NotFound text={context.t("Nothing found :(")} />
           )}
-        {!props.loading &&
-          props.userList.length > 0 && (
-            <RenderUserSearch userList={props.userList} />
-          )}
+        <div className={styles.content}>
+          {!props.loading &&
+            props.userList.length > 0 && (
+              <RenderUserSearch userList={props.userList} />
+            )}
+        </div>
       </div>
       <div className={styles.section}>
         <h4 className={styles.title}>{context.t("Photos")}</h4>
         {props.loading && <Loading />}
         {!props.loading &&
           props.imageList.length < 1 && (
-            <NotFound text={context.t("Nothinf Found :(")} />
+            <NotFound text={context.t("Nothing found :(")} />
           )}
-        {!props.loading &&
-          props.imageList.length > 0 && (
-            <RenderImageSearch imageList={props.imageList} />
-          )}
+        <div className={styles.content}>
+          {!props.loading &&
+            props.imageList.length > 0 && (
+              <RenderImageSearch imageList={props.imageList} />
+            )}
+        </div>
       </div>
     </div>
   );
 };
 
-const RenderUserSearch = props => {
+const RenderUserSearch = props =>
   props.userList.map(user => (
     <UserDisplay vertical={true} user={user} key={user.id} />
   ));
-};
 
-const RenderImageSearch = props => {
-  props.imageList.map(photo => photo => (
-    <PhotoDisplay photo={photo} key={photo.id} />
-  ));
-};
+const RenderImageSearch = props =>
+  props.imageList.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
 
 const NotFound = props => <span className={styles.notFound}>{props.text}</span>;
 
