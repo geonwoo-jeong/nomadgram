@@ -11,10 +11,12 @@ class Container extends Component {
     userList: PropTypes.array,
     imageList: PropTypes.array
   };
+
   componentDidMount() {
     const { searchByTerm } = this.props;
     searchByTerm();
   }
+
   componentDidUpdate(prevProps, prevState) {
     const { searchByTerm } = this.props;
     if (prevProps.match.params !== this.props.match.params) {
@@ -22,20 +24,14 @@ class Container extends Component {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    const { searchByTerm, pathname } = this.props;
+  static getDerivedStateFromProps = nextProps => {
     if (nextProps.userList && nextProps.imageList) {
-      this.setState({
-        loading: false
-      });
-    }
-    // if (nextProps.match = == this.props.match) {
-    //   searchByTerm();
-    // }
-    if (nextProps.pathname !== pathname) {
-      searchByTerm();
+      return { loading: false };
+    } else {
+      return { loading: true };
     }
   };
+
   render() {
     const { userList, imageList } = this.props;
     return (

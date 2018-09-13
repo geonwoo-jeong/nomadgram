@@ -10,12 +10,11 @@ class Container extends Component {
     getExplore: PropTypes.func.isRequired,
     userList: PropTypes.array
   };
-  componentDidMount() {
+  componentDidMount(props) {
     const { getExplore } = this.props;
-    if (!this.props.userList) {
-      getExplore();
-    }
+    getExplore();
   }
+
   static getDerivedStateFromProps = nextProps => {
     if (nextProps.userList) {
       return { loading: false };
