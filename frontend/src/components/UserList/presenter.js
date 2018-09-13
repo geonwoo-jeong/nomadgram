@@ -10,12 +10,9 @@ const UserList = props => (
     <div className={styles.box}>
       <header className={styles.header}>
         <h4 className={styles.title}>{props.title}</h4>
-        <Ionicon
-          className={styles.icon}
-          icon="md-close"
-          fontSize="24px"
-          color="black"
-        />
+        <span onClick={props.closeLikes}>
+          <Ionicon icon="md-close" fontSize="20px" color="black" />
+        </span>
       </header>
       <div className={styles.content}>
         {props.loading ? <Loading /> : <RenderUsers list={props.userList} />}
