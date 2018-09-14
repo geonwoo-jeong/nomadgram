@@ -34,7 +34,9 @@ const Navigation = (props, context) => (
           </Link>
         </div>
         <div className={styles.navIcon}>
-          <Ionicon icon="ios-heart-outline" fontSize="28px" color="black" />
+          <Link to="/activity">
+            <Ionicon icon="ios-heart-outline" fontSize="28px" color="black" />
+          </Link>
         </div>
         <div className={styles.navIcon}>
           <Ionicon icon="ios-person-outline" fontSize="28px" color="black" />

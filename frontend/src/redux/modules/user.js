@@ -8,7 +8,10 @@ const SET_USER_LIST = "SET_USER_LIST";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_EXPLORE = "SET_EXPLORE";
+const RESET_EXPLORE = "RESET_EXPLORE";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
+const SET_NOTIFICATION = "SET_NOTIFICATION";
+const RESET_TERM = "RESET_TERM";
 
 // action creators
 
@@ -57,6 +60,14 @@ function setImageList(imageList) {
   return {
     type: SET_IMAGE_LIST,
     imageList
+  };
+}
+
+function setNotification(userList) {
+  console.log("setNotification", userList);
+  return {
+    type: SET_NOTIFICATION,
+    userList
   };
 }
 
@@ -197,6 +208,18 @@ function getExplore() {
   };
 }
 
+function getResetExplore() {
+  return (dispatch, getState) => {
+    dispatch(setExplore());
+  };
+}
+
+function getResetTerm() {
+  return (dispatch, getState) => {
+    dispatch(setUserList());
+  };
+}
+
 function searchByTerm(searchTerm) {
   return async (dispatch, getState) => {
     const {
@@ -244,6 +267,29 @@ function searchImages(token, searchTerm) {
     .then(json => json);
 }
 
+function getNotification() {
+  console.log("getNotification");
+  return (dispatch, getState) => {
+    const {
+      user: { token }
+    } = getState();
+    fetch("/notifications", {
+      method: "GET",
+      headers: {
+        Authorization: `JWT ${token}`,
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (response.status === 401) {
+          dispatch(logout());
+        }
+        return response.json();
+      })
+      .then(json => dispatch(setNotification(json)));
+  };
+}
+
 // initial state
 
 const initialState = {
@@ -289,8 +335,14 @@ function reducer(state = initialState, action) {
       return applyUnfollowUser(state, action);
     case SET_EXPLORE:
       return applySetExplore(state, action);
+    case RESET_EXPLORE:
+      return applyResetExplore(state, action);
     case SET_IMAGE_LIST:
       return applySetImageList(state, action);
+    case SET_NOTIFICATION:
+      return applySetNotification(state, action);
+    case RESET_TERM:
+      return applyResetTerm(state, action);
     default:
       return state;
   }
@@ -355,11 +407,32 @@ function applySetExplore(state, action) {
   };
 }
 
+function applyResetExplore(state, action) {
+  return {
+    ...state
+  };
+}
+
+function applyResetTerm(state, action) {
+  return {
+    ...state
+  };
+}
+
 function applySetImageList(state, action) {
   const { imageList } = action;
   return {
     ...state,
     imageList
+  };
+}
+
+function applySetNotification(state, action) {
+  const { userList } = action;
+  console.log("applySetNotification", userList);
+  return {
+    ...state,
+    userList
   };
 }
 
@@ -374,7 +447,10 @@ const actionCreators = {
   followUser,
   unfollowUser,
   getExplore,
-  searchByTerm
+  getResetExplore,
+  searchByTerm,
+  getNotification,
+  getResetTerm
 };
 
 export { actionCreators };

@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getExplore: () => {
       dispatch(userActions.getExplore());
+    },
+    getResetExplore: () => {
+      dispatch(userActions.getResetExplore());
     }
   };
 };

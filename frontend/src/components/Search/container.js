@@ -23,7 +23,10 @@ class Container extends Component {
       searchByTerm();
     }
   }
-
+  componentWillUnmount() {
+    const { getResetTerm } = this.props;
+    getResetTerm();
+  }
   static getDerivedStateFromProps = nextProps => {
     if (nextProps.userList && nextProps.imageList) {
       return { loading: false };

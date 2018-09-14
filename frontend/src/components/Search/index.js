@@ -22,6 +22,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     searchByTerm: () => {
       dispatch(userActions.searchByTerm(searchTerm));
+    },
+    getResetTerm: () => {
+      dispatch(userActions.getResetTerm());
     }
   };
 };

@@ -15,6 +15,11 @@ class Container extends Component {
     getExplore();
   }
 
+  componentWillUnmount() {
+    const { getResetExplore } = this.props;
+    getResetExplore();
+  }
+
   static getDerivedStateFromProps = nextProps => {
     if (nextProps.userList) {
       return { loading: false };
