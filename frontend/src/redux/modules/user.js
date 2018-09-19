@@ -63,11 +63,10 @@ function setImageList(imageList) {
   };
 }
 
-function setNotification(userList) {
-  console.log("setNotification", userList);
+function setNotification(notificationList) {
   return {
     type: SET_NOTIFICATION,
-    userList
+    notificationList
   };
 }
 
@@ -268,7 +267,6 @@ function searchImages(token, searchTerm) {
 }
 
 function getNotification() {
-  console.log("getNotification");
   return (dispatch, getState) => {
     const {
       user: { token }
@@ -281,6 +279,7 @@ function getNotification() {
       }
     })
       .then(response => {
+        console.log(response);
         if (response.status === 401) {
           dispatch(logout());
         }
@@ -428,11 +427,10 @@ function applySetImageList(state, action) {
 }
 
 function applySetNotification(state, action) {
-  const { userList } = action;
-  console.log("applySetNotification", userList);
+  const { notificationList } = action;
   return {
     ...state,
-    userList
+    notificationList
   };
 }
 

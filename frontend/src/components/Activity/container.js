@@ -1,23 +1,37 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Activity from "./presenter";
-
 class Container extends Component {
   state = {
     loading: true
   };
+  static propTypes = {
+    getNotification: PropTypes.func.isRequired,
+    notificationList: PropTypes.array
+  };
 
   componentDidMount(props) {
-    console.log("componentDidMount");
-    // const { getNotification } = this.props;
-    // getNotification();
+    const { getNotification } = this.props;
+    if (!this.props.notificationList) {
+      getNotification();
+    } else {
+      this.setState({
+        loading: false
+      });
+    }
   }
 
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.notificationList) {
+      this.setState({
+        loading: false
+      });
+    }
+  };
+
   render() {
-    console.log("render");
-    return <div>return</div>;
-    //    const { userList } = this.props;
-    //    return <Activity {...this.state} userList={userList} />;
-    //    return <Activity {...this.state} userList={userList} />;
+    const { notificationList } = this.props;
+    return <Activity {...this.state} notificationList={notificationList} />;
   }
 }
 

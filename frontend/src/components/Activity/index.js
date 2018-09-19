@@ -1,30 +1,26 @@
-import React from "react";
-//import { connect } from "react-redux";
-//import Container from "./container";
-//import { actionCreators as userActions } from "redux/modules/user";
+import { connect } from "react-redux";
+import Container from "./container";
+import { actionCreators as userActions } from "redux/modules/user";
 
-const Footer = props => (
-  <div>
-    <span>something..</span>
-  </div>
-);
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.user);
+  const {
+    user: { notificationList }
+  } = state;
+  return {
+    notificationList
+  };
+};
 
-// const mapStateToProps = (state, ownProps) => {
-//   const {
-//     user: { userList }
-//   } = state;
-//   return {
-//     userList
-//   };
-// };
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getNotification: () => {
+      dispatch(userActions.getNotification());
+    }
+  };
+};
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   console.log("mapDispatchToProps", dispatch, ownProps);
-//   return {
-//     getNotification: () => {
-//       dispatch(userActions.getNotification());
-//     }
-//   };
-// };
-
-export default Footer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Container);
