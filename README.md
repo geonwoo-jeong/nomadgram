@@ -1,5 +1,7 @@
 <h1 align="center"> Instagram Clone </h1> <br>
 
+ 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Python](https://img.shields.io/badge/Python-v3.7-purple.svg)
 ![Django](https://img.shields.io/badge/Django-v2.0.8-blue.svg)
